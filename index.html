@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Výzvář – Generátor náhodných výzev</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <!-- Vlastní styly -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between">
+    <a href="#" class="brand" aria-label="Výzvář – domovská stránka">⚡ Výzvář</a>
+    <nav aria-label="Hlavní navigace" class="d-flex gap-2 align-items-center flex-wrap">
+      <button class="nav-btn active" id="navMain"    aria-current="page">Výzvy</button>
+      <button class="nav-btn"        id="navLiked"   aria-label="Oblíbené výzvy">❤️ Oblíbené</button>
+      <button class="nav-btn"        id="navHistory" aria-label="Historie výzev">📜 Historie</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     HLAVNÍ POHLED
+══════════════════════════════════════════ -->
+<main id="mainView">
+
+  <!-- Hero sekce -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <h1 id="heroTitle">Náhodná<br>výzva!</h1>
+    <p>Pravda nebo výzva, kreativita, pohyb a víc – cokoliv!</p>
+    <button class="nickname-badge" id="nicknameBadge" aria-label="Změnit přezdívku">
+      <i class="bi bi-person-circle"></i>
+      <span id="nicknameDisplay">Nastavit přezdívku</span>
+      <i class="bi bi-pencil-fill" style="font-size:.8rem"></i>
+    </button>
+  </section>
+
+  <!-- Filtry -->
+  <section aria-label="Filtry výzev">
+    <div class="category-pills" role="group" aria-label="Kategorie">
+      <button class="pill selected" data-cat="all">🎲 Vše</button>
+      <button class="pill" data-cat="pravda">💬 Pravda</button>
+      <button class="pill" data-cat="vyzva">🔥 Výzva</button>
+      <button class="pill" data-cat="kreativita">🎨 Kreativita</button>
+      <button class="pill" data-cat="pohyb">🏃 Pohyb</button>
+      <button class="pill" data-cat="socialni">🤝 Sociální</button>
+    </div>
+
+    <div class="diff-row" role="group" aria-label="Obtížnost">
+      <button class="diff-btn active-easy" data-diff="easy"   aria-pressed="true">😊 Lehká</button>
+      <button class="diff-btn"             data-diff="medium" aria-pressed="false">😤 Střední</button>
+      <button class="diff-btn"             data-diff="hard"   aria-pressed="false">💀 Těžká</button>
+    </div>
+  </section>
+
+  <!-- Karta s výzvou -->
+  <section class="challenge-wrap" aria-live="polite" aria-atomic="true">
+    <article class="challenge-card" id="challengeCard" role="region" aria-label="Aktuální výzva">
+      <div class="empty-state">
+        <i class="bi bi-lightning-charge-fill c-vyzva"></i>
+        Klikni na tlačítko a dostaneš výzvu!
+      </div>
+    </article>
+
+    <div class="text-center">
+      <button class="btn-generate" id="btnGenerate" aria-label="Vygenerovat novou výzvu">
+        <i class="bi bi-shuffle"></i> NOVÁ VÝZVA
+      </button>
+    </div>
+
+    <div class="action-row" id="actionRow" style="display:none!important">
+      <button class="btn-icon" id="btnLike"  aria-label="Přidat do oblíbených">🤍 Oblíbit</button>
+      <button class="btn-icon" id="btnShare" aria-label="Sdílet výzvu">🔗 Sdílet</button>
+      <button class="btn-icon" id="btnSkip"  aria-label="Přeskočit výzvu">⏭️ Přeskočit</button>
+    </div>
+  </section>
+
+  <!-- Vlastní výzva -->
+  <section class="challenge-wrap" aria-labelledby="customTitle">
+    <div class="custom-section">
+      <h2 id="customTitle">✏️ Přidat vlastní výzvu</h2>
+      <div class="d-flex flex-column gap-2">
+        <input
+          type="text"
+          class="form-control-dark"
+          id="customText"
+          placeholder="Napiš vlastní výzvu nebo pravdu…"
+          maxlength="200"
+          aria-label="Text vlastní výzvy"
+        />
+        <div class="d-flex gap-2">
+          <select class="form-select-dark" id="customCat" aria-label="Kategorie vlastní výzvy">
+            <option value="vlastni">🌟 Vlastní</option>
+            <option value="pravda">💬 Pravda</option>
+            <option value="vyzva">🔥 Výzva</option>
+            <option value="kreativita">🎨 Kreativita</option>
+            <option value="pohyb">🏃 Pohyb</option>
+            <option value="socialni">🤝 Sociální</option>
+          </select>
+          <select class="form-select-dark" id="customDiff" aria-label="Obtížnost vlastní výzvy">
+            <option value="easy">😊 Lehká</option>
+            <option value="medium">😤 Střední</option>
+            <option value="hard">💀 Těžká</option>
+          </select>
+          <button class="btn-add-custom" id="btnAddCustom" aria-label="Přidat výzvu">+ Přidat</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     OBLÍBENÉ
+══════════════════════════════════════════ -->
+<section id="likedView" style="display:none" aria-labelledby="likedTitle">
+  <div id="likedSection">
+    <div class="d-flex align-items-center justify-content-between mb-3 mt-4">
+      <h2 id="likedTitle">❤️ Oblíbené</h2>
+      <button class="btn-clear" id="btnClearLiked">Smazat vše</button>
+    </div>
+    <div id="likedList"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     HISTORIE
+══════════════════════════════════════════ -->
+<section id="historyView" style="display:none" aria-labelledby="historyTitle">
+  <div id="historySection">
+    <div class="d-flex align-items-center justify-content-between mb-3 mt-4">
+      <h2 id="historyTitle">📜 Historie</h2>
+      <button class="btn-clear" id="btnClearHistory">Smazat vše</button>
+    </div>
+    <div id="historyList"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MODAL – přezdívka
+══════════════════════════════════════════ -->
+<div class="modal-overlay" id="nicknameModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <h3 id="modalTitle">Jak ti říkají?</h3>
+    <input
+      type="text"
+      id="nicknameInput"
+      placeholder="Tvoje přezdívka…"
+      maxlength="30"
+      aria-label="Přezdívka"
+    />
+    <button class="btn-modal-ok" id="btnSaveNick">Uložit ⚡</button>
+  </div>
+</div>
+
+<!-- Toast notifikace -->
+<div class="toast-wrap" id="toastWrap" aria-live="assertive" aria-atomic="true"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Vlastní skript -->
+<script src="script.js"></script>
+</body>
+</html>
