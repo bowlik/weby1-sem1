@@ -8,13 +8,13 @@ Výzvář je interaktivní webová aplikace, která generuje náhodné výzvy a 
 
 ## 🚀 Funkce
 
-- 🎲 Generátor náhodných výzev z 5 kategorií (Pravda, Výzva, Kreativita, Pohyb, Sociální)
-- ⭐ 3 úrovně obtížnosti (Lehká, Střední, Těžká)
-- ❤️ Ukládání oblíbených výzev
-- 📜 Historie posledních 100 výzev
-- ✏️ Přidání vlastní výzvy
-- 👤 Přezdívka hráče
-- 🔗 Sdílení výzvy
+-  Generátor náhodných výzev z 5 kategorií (Pravda, Výzva, Kreativita, Pohyb, Sociální)
+-  3 úrovně obtížnosti (Lehká, Střední, Těžká)
+-  Ukládání oblíbených výzev
+-  Historie posledních 100 výzev
+-  Přidání vlastní výzvy
+-  Přezdívka hráče
+-  Sdílení výzvy
 
 ## 🛠️ Technologie
 
@@ -49,4 +49,4 @@ npx live-server
 
 ## 👤 Autor
 
-- **bowlik** – [github.com/bowlik](https://github.com/bowlik)
+- **Martin Pešek st72475** – [github.com/bowlik](https://github.com/bowlik)
