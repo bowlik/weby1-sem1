@@ -1,12 +1,12 @@
-# ⚡ Výzvář – Generátor náhodných výzev
+# Výzvář – Generátor náhodných výzev
 
 Semestrální projekt do předmětu **Webové aplikace 1**.
 
-## 📌 Popis
+## Popis
 
 Výzvář je interaktivní webová aplikace, která generuje náhodné výzvy a pravdy. Uživatel si může filtrovat výzvy podle kategorie a obtížnosti, ukládat oblíbené, přidávat vlastní výzvy a prohlížet historii.
 
-## 🚀 Funkce
+## Funkce
 
 -  Generátor náhodných výzev z 5 kategorií (Pravda, Výzva, Kreativita, Pohyb, Sociální)
 -  3 úrovně obtížnosti (Lehká, Střední, Těžká)
@@ -16,7 +16,7 @@ Výzvář je interaktivní webová aplikace, která generuje náhodné výzvy a 
 -  Přezdívka hráče
 -  Sdílení výzvy
 
-## 🛠️ Technologie
+## Technologie
 
 - **HTML5** – sémantické elementy, ARIA atributy
 - **CSS** – vlastní styly + **Bootstrap 5**
@@ -25,7 +25,7 @@ Výzvář je interaktivní webová aplikace, která generuje náhodné výzvy a 
   - `cookies` – zapamatování přezdívky
   - DOM manipulace – dynamické generování obsahu
 
-## 📁 Struktura projektu
+## Struktura projektu
 
 ```
 vyzvar/
@@ -34,10 +34,10 @@ vyzvar/
 └── script.js    # Logika aplikace
 ```
 
-## ▶️ Spuštění
+## Spuštění
 
 1. Stáhni všechny soubory do jedné složky
-2. Otevři **PowerShell** ve složce projektu
+2. Otevři **CMD** ve složce projektu
 3. Spusť lokální server příkazem:
 ```powershell
 npx live-server
@@ -47,6 +47,6 @@ npx live-server
 
 > Vyžaduje nainstalovaný [Node.js](https://nodejs.org)
 
-## 👤 Autor
+## Autor
 
 - **Martin Pešek st72475** – [github.com/bowlik](https://github.com/bowlik)
